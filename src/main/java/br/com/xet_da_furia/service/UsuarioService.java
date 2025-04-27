@@ -6,7 +6,9 @@ import java.util.Optional;
 import org.springframework.stereotype.Service;
 
 import br.com.xet_da_furia.model.Usuario;
+import br.com.xet_da_furia.model.dto.UsuarioDetailsDTO;
 import br.com.xet_da_furia.repository.UsuarioRepository;
+import br.com.xet_da_furia.utils.ConversorDTO;
 import lombok.AllArgsConstructor;
 
 @AllArgsConstructor
@@ -29,9 +31,15 @@ public class UsuarioService {
 		return buscarUsuario.get();
 	}
 	
-	public Usuario save(Usuario usuario) {
+	public UsuarioDetailsDTO buscarUsuario(String id) {
+		Usuario usuario = findById(id);
+		
+		return ConversorDTO.usuarioDetails(usuario);
+	}
+	
+	public UsuarioDetailsDTO save(Usuario usuario) {
 		Usuario novoUsuario = new Usuario(usuario.getNome(), usuario.getEmail(), usuario.getSenha());
 		
-		return usuarioRepository.save(novoUsuario);
+		return ConversorDTO.usuarioDetails(usuarioRepository.save(novoUsuario));
 	}
 }

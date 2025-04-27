@@ -10,7 +10,10 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import br.com.xet_da_furia.model.Usuario;
+import br.com.xet_da_furia.model.dto.UsuarioDetailsDTO;
+import br.com.xet_da_furia.model.dto.UsuarioResponseDTO;
 import br.com.xet_da_furia.service.UsuarioService;
+import br.com.xet_da_furia.utils.ConversorDTO;
 import lombok.AllArgsConstructor;
 
 @AllArgsConstructor
@@ -21,17 +24,17 @@ public class UsuarioController {
 	private UsuarioService usuarioService;
 	
 	@GetMapping
-	public List<Usuario> buscarTodos() {		
-		return usuarioService.findAll();
+	public List<UsuarioResponseDTO> buscarTodos() {		
+		return ConversorDTO.usuarios(usuarioService.findAll());
 	}
 	
 	@GetMapping("/{id}")
-	public Usuario buscarUsuario(@PathVariable String id) {
-		return usuarioService.findById(id);
+	public UsuarioDetailsDTO buscarUsuario(@PathVariable String id) {
+		return usuarioService.buscarUsuario(id);
 	}
 	
 	@PostMapping
-	public Usuario criarUsuario(@RequestBody Usuario usuario) {
+	public UsuarioDetailsDTO criarUsuario(@RequestBody Usuario usuario) {
 		return usuarioService.save(usuario);
 	}
 }
