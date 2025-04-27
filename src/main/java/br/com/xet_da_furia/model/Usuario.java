@@ -4,11 +4,13 @@ import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.List;
 
+import jakarta.persistence.CascadeType;
 import jakarta.persistence.Entity;
 import jakarta.persistence.FetchType;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
+import jakarta.persistence.ManyToMany;
 import jakarta.persistence.OneToMany;
 import jakarta.persistence.Table;
 import lombok.Data;
@@ -33,6 +35,9 @@ public class Usuario {
 	
 	@OneToMany(mappedBy = "administrador")
 	private List<Chat> chatsCriados = new ArrayList<Chat>();
+	
+	@ManyToMany(mappedBy = "participantes", cascade = CascadeType.PERSIST)
+	private List<Chat> chatsParticipados = new ArrayList<Chat>();
 
 	public Usuario(String nome, String email, String senha) {
 		this.id = null;

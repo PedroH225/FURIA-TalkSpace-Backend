@@ -1,6 +1,7 @@
 package br.com.xet_da_furia.model.dto;
 
 import java.time.format.DateTimeFormatter;
+import java.util.ArrayList;
 import java.util.List;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
@@ -25,6 +26,8 @@ public class ChatDetailsDTO {
 	
 	private UsuarioResponseDTO administrador;
 	
+	private List<UsuarioResponseDTO> participantes = new ArrayList<>();
+	
 	@JsonIgnore
 	private DateTimeFormatter dtf = DateTimeFormatter.ofPattern("dd/MM/yyyy HH:mm");
 	
@@ -37,5 +40,7 @@ public class ChatDetailsDTO {
 		this.criadaEm = dtf.format(chat.getCriadaEm());
 		
 		this.administrador = ConversorDTO.usuario(chat.getAdministrador());
+		
+		this.participantes = ConversorDTO.usuarios(chat.getParticipantes());
 	}
 }

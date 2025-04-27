@@ -2,9 +2,11 @@ package br.com.xet_da_furia.controller;
 
 import java.util.List;
 
+import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
@@ -35,6 +37,16 @@ public class ChatController {
 	@PostMapping("/{usuarioId}")
 	public ChatDetailsDTO criarChat(@RequestBody Chat chat, @PathVariable String usuarioId) {
 		return chatService.save(chat, usuarioId);
+	}
+	
+	@PutMapping("/{chatId}/{usuarioId}")
+	public ChatDetailsDTO adicionarParticipante(@PathVariable String chatId, @PathVariable String usuarioId) {
+		return chatService.addParticipante(chatId, usuarioId);
+	}
+	
+	@DeleteMapping("/{chatId}/{usuarioId}")
+	public ChatDetailsDTO removerParticipante(@PathVariable String chatId, @PathVariable String usuarioId) {
+		return chatService.removerParticipante(chatId, usuarioId);
 	}
 }
 

@@ -18,12 +18,16 @@ public class UsuarioDetailsDTO {
 	
 	private List<ChatResponseDTO> chatsCriados = new ArrayList<ChatResponseDTO>();
 	
+	private List<ChatResponseDTO> chatsParticipados = new ArrayList<>();
+	
 	public UsuarioDetailsDTO(Usuario usuario) {
 		this.id = usuario.getId();
 		this.nome = usuario.getNome();
 		this.email = usuario.getEmail();
 		
 		this.chatsCriados = ConversorDTO.chats(usuario.getChatsCriados());
+		
+		this.chatsParticipados = ConversorDTO.chats(usuario.getChatsParticipados());
 	}
 	
 }
