@@ -38,6 +38,10 @@ public class Chat {
 	
 	@Column(name = "criado_em")
 	private LocalDateTime criadaEm;
+	
+	@ManyToOne()
+	@JoinColumn(name = "usuario_id", referencedColumnName = "id")
+	private Usuario administrador;
 
 	public Chat(String nome, String descricao, Jogo jogo, Tema tema) {
 		this.id = null;

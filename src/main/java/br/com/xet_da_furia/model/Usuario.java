@@ -1,11 +1,14 @@
 package br.com.xet_da_furia.model;
 
 import java.time.LocalDateTime;
+import java.util.List;
 
 import jakarta.persistence.Entity;
+import jakarta.persistence.FetchType;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
+import jakarta.persistence.OneToMany;
 import jakarta.persistence.Table;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -26,6 +29,9 @@ public class Usuario {
 	private String senha;
 	
 	private LocalDateTime criadoEm;
+	
+	@OneToMany(mappedBy = "administrador")
+	private List<Chat> chatsCriados;
 
 	public Usuario(String nome, String email, String senha) {
 		this.id = null;
