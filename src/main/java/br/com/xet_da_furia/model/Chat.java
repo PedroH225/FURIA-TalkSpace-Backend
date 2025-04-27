@@ -43,13 +43,14 @@ public class Chat {
 	@JoinColumn(name = "usuario_id", referencedColumnName = "id")
 	private Usuario administrador;
 
-	public Chat(String nome, String descricao, Jogo jogo, Tema tema) {
+	public Chat(String nome, String descricao, Jogo jogo, Tema tema, Usuario usuario) {
 		this.id = null;
 		this.nome = nome;
 		this.descricao = descricao;
 		this.jogo = jogo;
 		this.tema = tema;
 		this.criadaEm = LocalDateTime.now();
+		this.administrador = usuario;
 	}	
 }
 
