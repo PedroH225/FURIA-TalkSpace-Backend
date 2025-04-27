@@ -7,7 +7,10 @@ import org.springframework.stereotype.Service;
 
 import br.com.xet_da_furia.model.Chat;
 import br.com.xet_da_furia.model.Usuario;
+import br.com.xet_da_furia.model.dto.ChatDetailsDTO;
+import br.com.xet_da_furia.model.dto.ChatResponseDTO;
 import br.com.xet_da_furia.repository.ChatRepository;
+import br.com.xet_da_furia.utils.ConversorDTO;
 import lombok.AllArgsConstructor;
 
 @AllArgsConstructor
@@ -18,8 +21,8 @@ public class ChatService {
 	
 	private UsuarioService usuarioService;
 	
-	public List<Chat> findAll() {
-		return chatRepository.findAll();
+	public List<ChatResponseDTO> findAll() {
+		return ConversorDTO.chats(chatRepository.findAll());
 	}
 	
 	public Chat findById(String id) {
@@ -32,11 +35,17 @@ public class ChatService {
 		return buscarChat.get();
 	}
 	
-	public Chat save(Chat chat, String usuarioId) {
+	public ChatDetailsDTO buscarChat(String id) {
+		Chat chat = findById(id);
+		
+		return ConversorDTO.chatDetails(chat);
+	}
+	
+	public ChatDetailsDTO save(Chat chat, String usuarioId) {
 		Usuario usuario = usuarioService.findById(usuarioId);
 		
 		Chat novoChat = new Chat(chat.getNome(), chat.getDescricao(), chat.getJogo(), chat.getTema(), usuario);
 		
-		return chatRepository.save(novoChat);
+		return ConversorDTO.chatDetails(chatRepository.save(novoChat));
 	}
 }
