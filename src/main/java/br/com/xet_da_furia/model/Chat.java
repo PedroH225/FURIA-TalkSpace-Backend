@@ -1,7 +1,10 @@
 package br.com.xet_da_furia.model;
 
 import java.time.LocalDateTime;
+import java.util.ArrayList;
+import java.util.List;
 
+import jakarta.persistence.CascadeType;
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.EnumType;
@@ -11,6 +14,8 @@ import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.JoinColumn;
+import jakarta.persistence.JoinTable;
+import jakarta.persistence.ManyToMany;
 import jakarta.persistence.ManyToOne;
 import jakarta.persistence.Table;
 import lombok.Data;
@@ -42,6 +47,12 @@ public class Chat {
 	@ManyToOne()
 	@JoinColumn(name = "usuario_id", referencedColumnName = "id")
 	private Usuario administrador;
+	
+	@ManyToMany(cascade = CascadeType.PERSIST)
+	@JoinTable(name = "usuario_chat",
+	joinColumns = @JoinColumn(name = "chat_id"),
+	inverseJoinColumns = @JoinColumn(name = "usuario_id"))
+	private List<Usuario> participantes = new ArrayList<Usuario>();
 
 	public Chat(String nome, String descricao, Jogo jogo, Tema tema, Usuario usuario) {
 		this.id = null;
