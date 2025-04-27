@@ -63,6 +63,11 @@ public class Chat {
 		this.criadaEm = LocalDateTime.now();
 		this.administrador = usuario;
 	}	
+	
+	public void adicionarParticipante(Usuario usuario) {
+		this.participantes.add(usuario);
+		usuario.getChatsParticipados().add(this);
+	}
 }
 
 

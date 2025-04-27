@@ -48,4 +48,22 @@ public class ChatService {
 		
 		return ConversorDTO.chatDetails(chatRepository.save(novoChat));
 	}
+	
+	public ChatDetailsDTO addParticipante(String chatId, String usuarioId) {
+		Chat buscarChat = findById(chatId);
+		Usuario buscarUsuario = usuarioService.findById(usuarioId);
+		
+		Optional<Usuario> buscarParticipante = buscarChat.getParticipantes().stream()
+				.filter(p -> p.getId().equals(usuarioId))
+				.findFirst();
+		
+		if (buscarParticipante.isPresent() || buscarChat.getAdministrador().getId().equals(usuarioId)) {
+			throw new RuntimeException("Você já está participando.");
+		}
+		
+		buscarChat.adicionarParticipante(buscarUsuario);
+	
+		return ConversorDTO.chatDetails(chatRepository.save(buscarChat));
+	}
+	
 }
