@@ -46,6 +46,8 @@ public class ChatService {
 		
 		Chat novoChat = new Chat(chat.getNome(), chat.getDescricao(), chat.getJogo(), chat.getTema(), usuario);
 		
+		novoChat.adicionarParticipante(usuario);
+		
 		return ConversorDTO.chatDetails(chatRepository.save(novoChat));
 	}
 	

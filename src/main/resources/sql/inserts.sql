@@ -34,4 +34,17 @@ INSERT INTO `xet-da-furia-db`.`usuario_chat` (usuario_id, chat_id) VALUES
   ('e5f67890-1234-5678-ef90-ga12ic34jd56', 'f3f7a654-f5d0-4459-a13f-edd261abe149'),
   ('f6789012-3456-7890-fa12-hb34jd56ke78', 'ba636156-91c9-4cf6-9780-de6a1f542c8b'),
   ('67890123-4567-8901-ga34-ic56ke78lf90', '5856d849-c55b-4ec1-b479-f0dab79b3908');
+  
+INSERT INTO `xet-da-furia-db`.`usuario_chat` (usuario_id, chat_id) VALUES
+  ('77eea251-9b21-42b1-b9cf-276035b66ed7', '12ab416b-62ad-4d8b-9a03-c10f33447c21'),
+  ('b2c3d4e5-f678-9012-bc34-de56fa78gh90', '98181834-2c9b-4e95-8650-8c0252098739'),
+  ('b2c3d4e5-f678-9012-bc34-de56fa78gh90', 'c4dd5846-3ce1-4d72-b32e-a99ca10ea64d'),
+  ('67890123-4567-8901-ga34-ic56ke78lf90', 'cc843694-019b-4d55-932f-0ec9aad44326'),
+  ('e5f67890-1234-5678-ef90-ga12ic34jd56', 'e9ccaa9e-f9d3-4ab6-a938-4b90d4ac364e'),
+  ('b634becf-47f9-4c99-a45e-f00f531e29bb', '468353e5-14f9-4b34-80dd-5d4c7b8f7671'),
+  ('f6789012-3456-7890-fa12-hb34jd56ke78', 'bf4db5ff-2299-47de-b797-4dcc2ad65963'),
+  ('37997bb5-8bba-4707-ae13-6d89b4cdf668', 'f3f7a654-f5d0-4459-a13f-edd261abe149'),
+  ('d4e5f678-9012-3456-de78-fa90hb12ic34', 'ba636156-91c9-4cf6-9780-de6a1f542c8b'),
+  ('d4e5f678-9012-3456-de78-fa90hb12ic34', '5856d849-c55b-4ec1-b479-f0dab79b3908');
+
 
