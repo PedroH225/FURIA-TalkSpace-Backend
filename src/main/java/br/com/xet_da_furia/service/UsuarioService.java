@@ -3,9 +3,11 @@ package br.com.xet_da_furia.service;
 import java.util.List;
 import java.util.Optional;
 
+import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
 
 import br.com.xet_da_furia.model.Usuario;
+import br.com.xet_da_furia.model.dto.LoginDto;
 import br.com.xet_da_furia.model.dto.UsuarioDetailsDTO;
 import br.com.xet_da_furia.repository.UsuarioRepository;
 import br.com.xet_da_furia.utils.ConversorDTO;
@@ -41,5 +43,9 @@ public class UsuarioService {
 		Usuario novoUsuario = new Usuario(usuario.getNome(), usuario.getEmail(), usuario.getSenha());
 		
 		return ConversorDTO.usuarioDetails(usuarioRepository.save(novoUsuario));
+	}
+
+	public ResponseEntity<Void> login(LoginDto loginDto) {
+		return null;
 	}
 }
