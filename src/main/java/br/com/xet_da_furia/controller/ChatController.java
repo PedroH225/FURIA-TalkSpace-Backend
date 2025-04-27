@@ -15,6 +15,7 @@ import br.com.xet_da_furia.model.Chat;
 import br.com.xet_da_furia.model.dto.ChatDetailsDTO;
 import br.com.xet_da_furia.model.dto.ChatResponseDTO;
 import br.com.xet_da_furia.service.ChatService;
+import br.com.xet_da_furia.utils.IdToken;
 import lombok.AllArgsConstructor;
 
 @AllArgsConstructor
@@ -34,19 +35,19 @@ public class ChatController {
 		return chatService.buscarChat(id);
 	}
 	
-	@PostMapping("/{usuarioId}")
-	public ChatDetailsDTO criarChat(@RequestBody Chat chat, @PathVariable String usuarioId) {
-		return chatService.save(chat, usuarioId);
+	@PostMapping
+	public ChatDetailsDTO criarChat(@RequestBody Chat chat) {
+		return chatService.save(chat, IdToken.get());
 	}
 	
-	@PutMapping("/{chatId}/{usuarioId}")
-	public ChatDetailsDTO adicionarParticipante(@PathVariable String chatId, @PathVariable String usuarioId) {
-		return chatService.addParticipante(chatId, usuarioId);
+	@PutMapping("/addUser/{chatId}")
+	public ChatDetailsDTO adicionarParticipante(@PathVariable String chatId) {
+		return chatService.addParticipante(chatId, IdToken.get());
 	}
 	
-	@DeleteMapping("/{chatId}/{usuarioId}")
-	public ChatDetailsDTO removerParticipante(@PathVariable String chatId, @PathVariable String usuarioId) {
-		return chatService.removerParticipante(chatId, usuarioId);
+	@DeleteMapping("/removerUser/{chatId}")
+	public ChatDetailsDTO removerParticipante(@PathVariable String chatId) {
+		return chatService.removerParticipante(chatId, IdToken.get());
 	}
 }
 

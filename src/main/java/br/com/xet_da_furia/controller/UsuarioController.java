@@ -18,6 +18,7 @@ import br.com.xet_da_furia.model.dto.UsuarioResponseDTO;
 import br.com.xet_da_furia.service.AuthorizationService;
 import br.com.xet_da_furia.service.UsuarioService;
 import br.com.xet_da_furia.utils.ConversorDTO;
+import br.com.xet_da_furia.utils.IdToken;
 import lombok.AllArgsConstructor;
 
 @AllArgsConstructor
@@ -34,9 +35,9 @@ public class UsuarioController {
 		return ConversorDTO.usuarios(usuarioService.findAll());
 	}
 	
-	@GetMapping("/{id}")
-	public UsuarioDetailsDTO buscarUsuario(@PathVariable String id) {
-		return usuarioService.buscarUsuario(id);
+	@GetMapping("/find")
+	public UsuarioDetailsDTO buscarUsuario() {
+		return usuarioService.buscarUsuario(IdToken.get());
 	}
 	
 	@PostMapping("/registrar")

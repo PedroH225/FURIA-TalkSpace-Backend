@@ -1,14 +1,14 @@
 INSERT INTO `xet-da-furia-db`.`usuarios` (id, nome, email, senha) VALUES
-('77eea251-9b21-42b1-b9cf-276035b66ed7', 'João Silva', 'joao@example.com', 'senha123'),
-('37997bb5-8bba-4707-ae13-6d89b4cdf668', 'Maria Oliveira', 'maria@example.com', 'senha123'),
-('b634becf-47f9-4c99-a45e-f00f531e29bb', 'Carlos Souza', 'carlos@example.com', 'senha123'),
-('a1b2c3d4-e5f6-7890-ab12-cd34ef56gh78', 'Ana Lima', 'ana@example.com', 'senha123'),
-('b2c3d4e5-f678-9012-bc34-de56fa78gh90', 'Pedro Santos', 'pedro@example.com', 'senha123'),
-('c3d4e5f6-7890-1234-cd56-ef78ga90hb12', 'Fernanda Costa', 'fernanda@example.com', 'senha123'),
-('d4e5f678-9012-3456-de78-fa90hb12ic34', 'Lucas Almeida', 'lucas@example.com', 'senha123'),
-('e5f67890-1234-5678-ef90-ga12ic34jd56', 'Paula Mendes', 'paula@example.com', 'senha123'),
-('f6789012-3456-7890-fa12-hb34jd56ke78', 'Ricardo Gonçalves', 'ricardo@example.com', 'senha123'),
-('67890123-4567-8901-ga34-ic56ke78lf90', 'Beatriz Martins', 'beatriz@example.com', 'senha123');
+('77eea251-9b21-42b1-b9cf-276035b66ed7', 'João Silva', 'joao@example.com', '$2a$10$y.eQ9fRriG3.5aG8O4wnT.Dg4OKCeZN6oT3p.H5BNG/zsPK0sK1dO'),
+('37997bb5-8bba-4707-ae13-6d89b4cdf668', 'Maria Oliveira', 'maria@example.com', '$2a$10$y.eQ9fRriG3.5aG8O4wnT.Dg4OKCeZN6oT3p.H5BNG/zsPK0sK1dO'),
+('b634becf-47f9-4c99-a45e-f00f531e29bb', 'Carlos Souza', 'carlos@example.com', '$2a$10$y.eQ9fRriG3.5aG8O4wnT.Dg4OKCeZN6oT3p.H5BNG/zsPK0sK1dO'),
+('a1b2c3d4-e5f6-7890-ab12-cd34ef56gh78', 'Ana Lima', 'ana@example.com', '$2a$10$y.eQ9fRriG3.5aG8O4wnT.Dg4OKCeZN6oT3p.H5BNG/zsPK0sK1dO'),
+('b2c3d4e5-f678-9012-bc34-de56fa78gh90', 'Pedro Santos', 'pedro@example.com', '$2a$10$y.eQ9fRriG3.5aG8O4wnT.Dg4OKCeZN6oT3p.H5BNG/zsPK0sK1dO'),
+('c3d4e5f6-7890-1234-cd56-ef78ga90hb12', 'Fernanda Costa', 'fernanda@example.com', '$2a$10$y.eQ9fRriG3.5aG8O4wnT.Dg4OKCeZN6oT3p.H5BNG/zsPK0sK1dO'),
+('d4e5f678-9012-3456-de78-fa90hb12ic34', 'Lucas Almeida', 'lucas@example.com', '$2a$10$y.eQ9fRriG3.5aG8O4wnT.Dg4OKCeZN6oT3p.H5BNG/zsPK0sK1dO'),
+('e5f67890-1234-5678-ef90-ga12ic34jd56', 'Paula Mendes', 'paula@example.com', '$2a$10$y.eQ9fRriG3.5aG8O4wnT.Dg4OKCeZN6oT3p.H5BNG/zsPK0sK1dO'),
+('f6789012-3456-7890-fa12-hb34jd56ke78', 'Ricardo Gonçalves', 'ricardo@example.com', '$2a$10$y.eQ9fRriG3.5aG8O4wnT.Dg4OKCeZN6oT3p.H5BNG/zsPK0sK1dO'),
+('67890123-4567-8901-ga34-ic56ke78lf90', 'Beatriz Martins', 'beatriz@example.com', '$2a$10$y.eQ9fRriG3.5aG8O4wnT.Dg4OKCeZN6oT3p.H5BNG/zsPK0sK1dO');
 
 
 INSERT INTO `chats` (`id`, `nome`, `descricao`, `jogo`, `tema`, `usuario_id`) VALUES
