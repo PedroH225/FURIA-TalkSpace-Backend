@@ -59,11 +59,33 @@ public class ChatService {
 				.filter(p -> p.getId().equals(usuarioId))
 				.findFirst();
 		
-		if (buscarParticipante.isPresent() || buscarChat.getAdministrador().getId().equals(usuarioId)) {
+		if (buscarParticipante.isPresent()) {
 			throw new RuntimeException("Você já está participando.");
 		}
 		
 		buscarChat.adicionarParticipante(buscarUsuario);
+	
+		return ConversorDTO.chatDetails(chatRepository.save(buscarChat));
+	}
+	
+	public ChatDetailsDTO removerParticipante(String chatId, String usuarioId) {
+		Chat buscarChat = findById(chatId);
+		Usuario buscarUsuario = usuarioService.findById(usuarioId);
+		
+		Optional<Usuario> buscarParticipante = buscarChat.getParticipantes().stream()
+				.filter(p -> p.getId().equals(usuarioId))
+				.findFirst();
+		
+		if (buscarParticipante.isEmpty()) {
+			throw new RuntimeException("Você não está participando.");
+			
+		} 
+		
+		if (buscarChat.getAdministrador().getId().equals(usuarioId)) {
+			throw new RuntimeException("Administradores não podem retirar a participação!");
+		}
+		
+		buscarChat.removerParticipante(buscarUsuario);
 	
 		return ConversorDTO.chatDetails(chatRepository.save(buscarChat));
 	}

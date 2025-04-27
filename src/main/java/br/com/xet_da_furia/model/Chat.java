@@ -68,6 +68,11 @@ public class Chat {
 		this.participantes.add(usuario);
 		usuario.getChatsParticipados().add(this);
 	}
+
+	public void removerParticipante(Usuario usuario) {
+		this.participantes.remove(usuario);
+		usuario.getChatsParticipados().remove(this);		
+	}
 }
 
 
