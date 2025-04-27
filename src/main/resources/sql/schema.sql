@@ -28,3 +28,13 @@ CREATE TABLE `xet-da-furia-db`.`chats` (
     `usuario_id` VARCHAR(36) NOT NULL,
     FOREIGN KEY(`usuario_id`) REFERENCES `xet-da-furia-db`.`usuarios`(`id`)
 ) ENGINE = InnoDB;
+
+-- -----------------------------------------------------
+-- Table `xet-da-furia-db`.`usuario_chat`
+-- -----------------------------------------------------
+CREATE TABLE IF NOT EXISTS `xet-da-furia-db`.`usuario_chat` (
+  `usuario_id` VARCHAR(36) NOT NULL,
+  `chat_id` VARCHAR(36) NOT NULL,
+  FOREIGN KEY (`usuario_id`) REFERENCES `xet-da-furia-db`.`usuarios`(`id`) ON DELETE CASCADE,
+  FOREIGN KEY (`chat_id`) REFERENCES `xet-da-furia-db`.`chats`(`id`) ON DELETE CASCADE
+) ENGINE = InnoDB;
