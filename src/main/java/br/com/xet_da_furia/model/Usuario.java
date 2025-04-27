@@ -1,6 +1,7 @@
 package br.com.xet_da_furia.model;
 
 import java.time.LocalDateTime;
+import java.util.ArrayList;
 import java.util.List;
 
 import jakarta.persistence.Entity;
@@ -31,7 +32,7 @@ public class Usuario {
 	private LocalDateTime criadoEm;
 	
 	@OneToMany(mappedBy = "administrador")
-	private List<Chat> chatsCriados;
+	private List<Chat> chatsCriados = new ArrayList<Chat>();
 
 	public Usuario(String nome, String email, String senha) {
 		this.id = null;
