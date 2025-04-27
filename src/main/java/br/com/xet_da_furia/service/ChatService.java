@@ -6,6 +6,7 @@ import java.util.Optional;
 import org.springframework.stereotype.Service;
 
 import br.com.xet_da_furia.model.Chat;
+import br.com.xet_da_furia.model.Usuario;
 import br.com.xet_da_furia.repository.ChatRepository;
 import lombok.AllArgsConstructor;
 
@@ -14,6 +15,8 @@ import lombok.AllArgsConstructor;
 public class ChatService {
 
 	private ChatRepository chatRepository;
+	
+	private UsuarioService usuarioService;
 	
 	public List<Chat> findAll() {
 		return chatRepository.findAll();
@@ -29,8 +32,10 @@ public class ChatService {
 		return buscarChat.get();
 	}
 	
-	public Chat save(Chat chat) {
-		Chat novoChat = new Chat(chat.getNome(), chat.getDescricao(), chat.getJogo(), chat.getTema());
+	public Chat save(Chat chat, String usuarioId) {
+		Usuario usuario = usuarioService.findById(usuarioId);
+		
+		Chat novoChat = new Chat(chat.getNome(), chat.getDescricao(), chat.getJogo(), chat.getTema(), usuario);
 		
 		return chatRepository.save(novoChat);
 	}

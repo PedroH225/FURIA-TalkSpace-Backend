@@ -30,9 +30,9 @@ public class ChatController {
 		return chatService.findById(id);
 	}
 	
-	@PostMapping
-	public Chat criarChat(@RequestBody Chat chat) {
-		return chatService.save(chat);
+	@PostMapping("/{usuarioId}")
+	public Chat criarChat(@RequestBody Chat chat, @PathVariable String usuarioId) {
+		return chatService.save(chat, usuarioId);
 	}
 }
 
