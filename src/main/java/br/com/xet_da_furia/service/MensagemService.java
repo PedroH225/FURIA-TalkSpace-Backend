@@ -5,9 +5,12 @@ import java.util.Optional;
 
 import org.springframework.stereotype.Service;
 
+import br.com.xet_da_furia.model.Chat;
 import br.com.xet_da_furia.model.Mensagem;
+import br.com.xet_da_furia.model.Usuario;
 import br.com.xet_da_furia.model.dto.MensagemDTO;
 import br.com.xet_da_furia.repository.MensagemRepository;
+import br.com.xet_da_furia.utils.ChatUtils;
 import br.com.xet_da_furia.utils.ConversorDTO;
 import lombok.AllArgsConstructor;
 
@@ -18,6 +21,8 @@ public class MensagemService {
 	private MensagemRepository mensagemRepository;
 	
 	private ChatService chatService;
+	
+	private UsuarioService usuarioService;
 	
 	public List<MensagemDTO> findAll() {
 		return ConversorDTO.mensagens(mensagemRepository.findAll());
@@ -38,4 +43,21 @@ public class MensagemService {
 		
 		return ConversorDTO.mensagem(mensagem);
 	}
+
+	public MensagemDTO novaMensagem(String chatId, String usuarioId, String conteudo) {
+		Chat chat = chatService.findById(chatId);
+		
+		ChatUtils.garantirParticipacao(chat, usuarioId);
+
+		Usuario usuario = usuarioService.findById(usuarioId);
+		
+		Mensagem mensagem = new Mensagem(chat, usuario, conteudo);
+		
+		return ConversorDTO.mensagem(mensagemRepository.save(mensagem));
+	}
 }
+
+
+
+
+
