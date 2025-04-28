@@ -38,3 +38,15 @@ CREATE TABLE IF NOT EXISTS `xet-da-furia-db`.`usuario_chat` (
   FOREIGN KEY (`usuario_id`) REFERENCES `xet-da-furia-db`.`usuarios`(`id`) ON DELETE CASCADE,
   FOREIGN KEY (`chat_id`) REFERENCES `xet-da-furia-db`.`chats`(`id`) ON DELETE CASCADE
 ) ENGINE = InnoDB;
+
+CREATE TABLE `xet-da-furia-db`.`mensagens` (
+    `id` VARCHAR(36) PRIMARY KEY,
+    `conteudo` TEXT NOT NULL,
+	`data_envio` TIMESTAMP NOT NULL,
+	`chat_id` VARCHAR(36) NOT NULL,
+    `usuario_id` VARCHAR(36) NOT NULL,
+    FOREIGN KEY (`chat_id`) REFERENCES `xet-da-furia-db`.`chats`(id) ON DELETE CASCADE,
+    FOREIGN KEY (`usuario_id`) REFERENCES `xet-da-furia-db`.`usuarios`(id) ON DELETE CASCADE
+) ENGINE = InnoDB;
+
+
