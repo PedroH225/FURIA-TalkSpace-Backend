@@ -46,6 +46,9 @@ public class Usuario implements UserDetails {
 	
 	@ManyToMany(mappedBy = "participantes", cascade = CascadeType.PERSIST)
 	private List<Chat> chatsParticipados = new ArrayList<Chat>();
+	
+	@OneToMany(mappedBy = "usuario")
+	private List<Mensagem> mensagens = new ArrayList<Mensagem>();
 
 	public Usuario(String nome, String email, String senha) {
 		this.id = null;

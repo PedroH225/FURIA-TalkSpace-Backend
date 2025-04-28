@@ -17,6 +17,7 @@ import jakarta.persistence.JoinColumn;
 import jakarta.persistence.JoinTable;
 import jakarta.persistence.ManyToMany;
 import jakarta.persistence.ManyToOne;
+import jakarta.persistence.OneToMany;
 import jakarta.persistence.Table;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -53,6 +54,9 @@ public class Chat {
 	joinColumns = @JoinColumn(name = "chat_id"),
 	inverseJoinColumns = @JoinColumn(name = "usuario_id"))
 	private List<Usuario> participantes = new ArrayList<Usuario>();
+	
+	@OneToMany(mappedBy = "chat")
+	private List<Mensagem> mensagens = new ArrayList<Mensagem>();
 
 	public Chat(String nome, String descricao, Jogo jogo, Tema tema, Usuario usuario) {
 		this.id = null;
