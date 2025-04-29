@@ -31,6 +31,11 @@ public class MensagemController {
 		return mensagemService.buscarMensagem(id);
 	}
 	
+	@GetMapping("/chat/{chatId}")
+	public List<MensagemDTO> buscarMensagensChat(@PathVariable String chatId) {
+		return mensagemService.buscarMensagensChat(chatId);
+	}
+	
 	@PostMapping("/{chatId}")
 	public MensagemDTO novaMensagem(@RequestBody String conteudo, @PathVariable String chatId) {
 		return mensagemService.novaMensagem(chatId, IdToken.get(), conteudo);

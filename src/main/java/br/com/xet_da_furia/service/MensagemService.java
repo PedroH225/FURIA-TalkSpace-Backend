@@ -55,6 +55,12 @@ public class MensagemService {
 		
 		return ConversorDTO.mensagem(mensagemRepository.save(mensagem));
 	}
+
+	public List<MensagemDTO> buscarMensagensChat(String chatId) {
+		List<Mensagem> mensagens = mensagemRepository.findAllByChatId(chatId);
+		
+		return ConversorDTO.mensagens(mensagens);
+	}
 }
 
 
