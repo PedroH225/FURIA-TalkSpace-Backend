@@ -57,7 +57,7 @@ public class MensagemService {
 	}
 
 	public List<MensagemDTO> buscarMensagensChat(String chatId) {
-		List<Mensagem> mensagens = mensagemRepository.findAllByChatId(chatId);
+		List<Mensagem> mensagens = mensagemRepository.findAllByChatIdOrderByDataEnvio(chatId);
 		
 		return ConversorDTO.mensagens(mensagens);
 	}

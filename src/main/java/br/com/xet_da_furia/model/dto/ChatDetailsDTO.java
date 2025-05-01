@@ -33,7 +33,7 @@ public class ChatDetailsDTO {
 	@JsonIgnore
 	private DateTimeFormatter dtf = DateTimeFormatter.ofPattern("dd/MM/yyyy HH:mm");
 	
-	public ChatDetailsDTO(Chat chat, String usuarioId) {
+	public ChatDetailsDTO(Chat chat) {
 		this.id = chat.getId();
 		this.nome = chat.getNome();
 		this.descricao = chat.getDescricao();
@@ -46,12 +46,6 @@ public class ChatDetailsDTO {
 		this.participantes = ConversorDTO.usuarios(chat.getParticipantes());
 		
 		this.mensagens = ConversorDTO.mensagens(chat.getMensagens());
-		
-		for (MensagemDTO mensagem : mensagens) {
-			if (mensagem.getUsuario().getId().equals(usuarioId)) {
-				mensagem.setAutor(true);
-			}
-		};
 
 	}
 }

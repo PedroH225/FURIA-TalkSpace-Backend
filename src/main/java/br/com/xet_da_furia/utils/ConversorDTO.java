@@ -18,7 +18,7 @@ public class ConversorDTO {
 	}
 	
 	public static ChatDetailsDTO chatDetails(Chat chat) {
-		return new ChatDetailsDTO(chat, IdToken.get());
+		return new ChatDetailsDTO(chat);
 	}
 	
 	public static List<ChatResponseDTO> chats(List<Chat> chats) {

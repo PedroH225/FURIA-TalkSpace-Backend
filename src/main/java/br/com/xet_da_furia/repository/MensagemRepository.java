@@ -8,6 +8,6 @@ import br.com.xet_da_furia.model.Mensagem;
 
 public interface MensagemRepository extends JpaRepository<Mensagem, String>{
 
-	List<Mensagem> findAllByChatId(String chatId);
+	List<Mensagem> findAllByChatIdOrderByDataEnvio(String chatId);
 	
 }
