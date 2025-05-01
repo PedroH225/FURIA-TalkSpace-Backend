@@ -19,6 +19,8 @@ public class MensagemDTO {
 	
 	private UsuarioResponseDTO usuario;
 	
+	private boolean isAutor = false;
+	
 	@JsonIgnore
 	private DateTimeFormatter dtf = DateTimeFormatter.ofPattern("dd/MM/yyyy HH:mm");
 	

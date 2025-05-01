@@ -28,10 +28,12 @@ public class ChatDetailsDTO {
 	
 	private List<UsuarioResponseDTO> participantes = new ArrayList<>();
 	
+	private List<MensagemDTO> mensagens = new ArrayList<MensagemDTO>();
+	
 	@JsonIgnore
 	private DateTimeFormatter dtf = DateTimeFormatter.ofPattern("dd/MM/yyyy HH:mm");
 	
-	public ChatDetailsDTO(Chat chat) {
+	public ChatDetailsDTO(Chat chat, String usuarioId) {
 		this.id = chat.getId();
 		this.nome = chat.getNome();
 		this.descricao = chat.getDescricao();
@@ -42,5 +44,14 @@ public class ChatDetailsDTO {
 		this.administrador = ConversorDTO.usuario(chat.getAdministrador());
 		
 		this.participantes = ConversorDTO.usuarios(chat.getParticipantes());
+		
+		this.mensagens = ConversorDTO.mensagens(chat.getMensagens());
+		
+		for (MensagemDTO mensagem : mensagens) {
+			if (mensagem.getUsuario().getId().equals(usuarioId)) {
+				mensagem.setAutor(true);
+			}
+		};
+
 	}
 }

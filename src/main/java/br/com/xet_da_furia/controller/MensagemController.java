@@ -10,6 +10,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import br.com.xet_da_furia.model.dto.MensagemDTO;
+import br.com.xet_da_furia.model.dto.NovaMensagemDTO;
 import br.com.xet_da_furia.service.MensagemService;
 import br.com.xet_da_furia.utils.IdToken;
 import lombok.AllArgsConstructor;
@@ -37,8 +38,8 @@ public class MensagemController {
 	}
 	
 	@PostMapping("/{chatId}")
-	public MensagemDTO novaMensagem(@RequestBody String conteudo, @PathVariable String chatId) {
-		return mensagemService.novaMensagem(chatId, IdToken.get(), conteudo);
+	public MensagemDTO novaMensagem(@RequestBody NovaMensagemDTO novaMensagem, @PathVariable String chatId) {
+		return mensagemService.novaMensagem(chatId, IdToken.get(), novaMensagem.getConteudo());
 	}
 	
 }
