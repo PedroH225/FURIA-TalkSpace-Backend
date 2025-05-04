@@ -22,7 +22,12 @@ O desafio escolhido foi o **Challenge #1: Experiência Conversacional**.
 ### Pré-requisitos
 - **Docker** instalado
 
-### Execução
+Caso queira rodar localmente:
+- **Java 21** instalado
+- **Maven** instalado 
+- **MySQL** instalado
+
+### Execução (Docker)
 1. Clone o repositório e acesse a pasta do backend
 ```bash
 git clone git@github.com:PedroH225/FURIA-TalkSpace-Backend.git
@@ -34,7 +39,35 @@ cd FURIA-TalkSpace-Backend/
 docker-compose up --build 
 ```
 
+### Execução (Local)
+1. Clone o repositório e acesse a pasta do backend
+```bash
+git clone git@github.com:PedroH225/FURIA-TalkSpace-Backend.git
+cd FURIA-TalkSpace-Backend/
+```
+
+2. Mude de branch
+```bash
+git checkout -b local origin/local
+```
+
+3. Crie o schema no mysql
+```bash
+CREATE SCHEMA xet-da-furia-db;
+```
+
+4. Adicione a variável de ambiente
+```bash
+xetPass=SUA_SENHA
+```
+
+5. Execute a aplicação
+```bash
+./mvnw spring-boot:run
+```
+- Ou execute o arquivo principal **XetDaFuriaApplication.java** pela IDE.
+
 ## Uso
 - [Execute o Frontend](https://github.com/PedroH225/FURIA-TalkSpace-Frontend)
 - Faça requisições via Postman:
-[Arquivo Postman](https://github.com/PedroH225/FURIA-TalkSpace-Backend/blob/main/FURIA-TalkSpace.postman_collection.json) (Necessário se autenticar para fazer requisições)
+ [Arquivo Postman](https://github.com/PedroH225/FURIA-TalkSpace-Backend/blob/main/FURIA-TalkSpace.postman_collection.json) (Necessário se autenticar para fazer requisições)
