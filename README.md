@@ -1,4 +1,4 @@
-### FURIA TalkSpace Backend
+# FURIA TalkSpace Backend
 ## Descrição
 A **FURIA TalkSpace**, é uma plataforma digital de chats voltada para os fãs das equipes da organização FURIA eSports. A plataforma permite que os torcedores se comuniquem entre si sobre as diferentes equipes da FURIA em diversos jogos, por meio de chats com diversos temas.
 
@@ -37,3 +37,4 @@ docker-compose up --build
 ## Uso
 - [Execute o Frontend](https://github.com/PedroH225/FURIA-TalkSpace-Frontend)
 - Faça requisições via Postman
+ - [Arquivo Postman](https://github.com/PedroH225/FURIA-TalkSpace-Backend/blob/main/FURIA-TalkSpace.postman_collection.json)(Necessário se autenticar para fazer requisições)
