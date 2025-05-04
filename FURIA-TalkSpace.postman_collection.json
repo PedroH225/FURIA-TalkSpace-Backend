@@ -1,0 +1,386 @@
+{
+	"info": {
+		"_postman_id": "10667756-36af-46f9-892c-4122093d27be",
+		"name": "FURIA-TalkSpace",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "34560802"
+	},
+	"item": [
+		{
+			"name": "Usuarios",
+			"item": [
+				{
+					"name": "findAll",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJhdXRoIiwic3ViIjoiMzc5OTdiYjUtOGJiYS00NzA3LWFlMTMtNmQ4OWI0Y2RmNjY4IiwiZXhwIjoxNzQ2NDE2ODc4fQ.FiQ2XxIm6ooUatN_Q91fdENAbJ8RwLnDO0xyx6Om7Ic",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "localhost:8080/usuarios",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"usuarios"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "findById",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "localhost:8080/usuarios/37997bb5-8bba-4707-ae13-6d89b4cdf668",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"usuarios",
+								"37997bb5-8bba-4707-ae13-6d89b4cdf668"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "criarUsuario",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"nome\": \"pedro\",\r\n    \"email\": \"pedro@gmail.com\",\r\n    \"senha\": \"senha123\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:8080/usuarios",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"usuarios"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "login",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"email\": \"maria@example.com\",\r\n    \"senha\": \"senha123\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:8080/usuarios/login",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"usuarios",
+								"login"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Chats",
+			"item": [
+				{
+					"name": "findAll",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJhdXRoIiwic3ViIjoiMzc5OTdiYjUtOGJiYS00NzA3LWFlMTMtNmQ4OWI0Y2RmNjY4IiwiZXhwIjoxNzQ2NDE2ODc4fQ.FiQ2XxIm6ooUatN_Q91fdENAbJ8RwLnDO0xyx6Om7Ic",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "localhost:8080/chats",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"chats"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "findById",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJhdXRoIiwic3ViIjoiMzc5OTdiYjUtOGJiYS00NzA3LWFlMTMtNmQ4OWI0Y2RmNjY4IiwiZXhwIjoxNzQ2NDE2ODc4fQ.FiQ2XxIm6ooUatN_Q91fdENAbJ8RwLnDO0xyx6Om7Ic",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "localhost:8080/chats/468353e5-14f9-4b34-80dd-5d4c7b8f7671",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"chats",
+								"468353e5-14f9-4b34-80dd-5d4c7b8f7671"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "criarChat",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJhdXRoIiwic3ViIjoiMzc5OTdiYjUtOGJiYS00NzA3LWFlMTMtNmQ4OWI0Y2RmNjY4IiwiZXhwIjoxNzQ2NDE2ODc4fQ.FiQ2XxIm6ooUatN_Q91fdENAbJ8RwLnDO0xyx6Om7Ic",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"nome\": \"Debate Pós-Jogo CS2\",\r\n    \"descricao\": \"Análise e opiniões sobre as partidas mais recentes de CS2.\",\r\n    \"jogo\": \"CS2\",\r\n    \"tema\": \"DISCUSSAO_DE_PARTIDA\"\r\n}\r\n",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:8080/chats",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"chats"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "adicionarParticipante",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJhdXRoIiwic3ViIjoiMzc5OTdiYjUtOGJiYS00NzA3LWFlMTMtNmQ4OWI0Y2RmNjY4IiwiZXhwIjoxNzQ2Mzc3MzQzfQ.osSfE97BCrmQGigwfPgFw6wU9XA3W-Vg9rT0Z-HF7JA",
+									"type": "string"
+								}
+							]
+						},
+						"method": "PUT",
+						"header": [],
+						"url": {
+							"raw": "localhost:8080/chats/addUser/",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"chats",
+								"addUser",
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "removerParticipante",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJhdXRoIiwic3ViIjoiMzc5OTdiYjUtOGJiYS00NzA3LWFlMTMtNmQ4OWI0Y2RmNjY4IiwiZXhwIjoxNzQ2NDE2ODc4fQ.FiQ2XxIm6ooUatN_Q91fdENAbJ8RwLnDO0xyx6Om7Ic",
+									"type": "string"
+								}
+							]
+						},
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "localhost:8080/chats/removerUser/468353e5-14f9-4b34-80dd-5d4c7b8f7671",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"chats",
+								"removerUser",
+								"468353e5-14f9-4b34-80dd-5d4c7b8f7671"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Mensagens",
+			"item": [
+				{
+					"name": "buscarTodos",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "468353e5-14f9-4b34-80dd-5d4c7b8f7671",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "localhost:8080/mensagens",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"mensagens"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "buscarMensagem",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "localhost:8080/mensagens/1",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"mensagens",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "buscarMensagensChat",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "localhost:8080/mensagens/chat/",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"mensagens",
+								"chat",
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "novaMensagem",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJhdXRoIiwic3ViIjoiMzc5OTdiYjUtOGJiYS00NzA3LWFlMTMtNmQ4OWI0Y2RmNjY4IiwiZXhwIjoxNzQ2NDE2ODc4fQ.FiQ2XxIm6ooUatN_Q91fdENAbJ8RwLnDO0xyx6Om7Ic",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"conteudo\": \"aaa\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:8080/mensagens/468353e5-14f9-4b34-80dd-5d4c7b8f7671",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"mensagens",
+								"468353e5-14f9-4b34-80dd-5d4c7b8f7671"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	]
+}
