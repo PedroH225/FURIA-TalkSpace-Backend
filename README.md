@@ -39,5 +39,5 @@ docker-compose up --build
 
 ## Uso
 - [Execute o Frontend](https://github.com/PedroH225/FURIA-TalkSpace-Frontend)
-- Faça requisições via Postman
- - [Arquivo Postman](https://github.com/PedroH225/FURIA-TalkSpace-Backend/blob/main/FURIA-TalkSpace.postman_collection.json) (Necessário se autenticar para fazer requisições)
+- Faça requisições via Postman:
+[Arquivo Postman](https://github.com/PedroH225/FURIA-TalkSpace-Backend/blob/main/FURIA-TalkSpace.postman_collection.json) (Necessário se autenticar para fazer requisições)
