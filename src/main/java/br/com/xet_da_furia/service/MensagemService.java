@@ -3,6 +3,7 @@ package br.com.xet_da_furia.service;
 import java.util.List;
 import java.util.Optional;
 
+import org.springframework.messaging.simp.SimpMessagingTemplate;
 import org.springframework.stereotype.Service;
 
 import br.com.xet_da_furia.model.Chat;
@@ -23,6 +24,8 @@ public class MensagemService {
 	private ChatService chatService;
 	
 	private UsuarioService usuarioService;
+	
+	private final SimpMessagingTemplate messagingTemplate;
 	
 	public List<MensagemDTO> findAll() {
 		return ConversorDTO.mensagens(mensagemRepository.findAll());
@@ -53,7 +56,11 @@ public class MensagemService {
 		
 		Mensagem mensagem = new Mensagem(chat, usuario, conteudo);
 		
-		return ConversorDTO.mensagem(mensagemRepository.save(mensagem));
+		MensagemDTO mensagemDTO = ConversorDTO.mensagem(mensagemRepository.save(mensagem));
+		
+	    messagingTemplate.convertAndSend("/topic/chat/" + chatId, mensagemDTO);
+
+		return mensagemDTO;
 	}
 
 	public List<MensagemDTO> buscarMensagensChat(String chatId) {
