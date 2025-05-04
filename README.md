@@ -21,9 +21,11 @@ O desafio escolhido foi o **Challenge #1: Experiência Conversacional**.
 
 ### Pré-requisitos
 - **Docker** instalado
-- **Java 21** instalado (caso deseje rodar localmente sem Docker)
+
+Caso queria rodar localmente:
+- **Java 21** instalado
 - **Maven** instalado
-- **MySQL** rodando via Docker (não é necessário rodar localmente se usar Docker)
+- **MySQL** instalado
 
 ### Execução
 1. Clone o repositório e acesse a pasta do backend
