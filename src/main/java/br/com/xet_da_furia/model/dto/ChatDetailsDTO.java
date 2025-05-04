@@ -28,6 +28,8 @@ public class ChatDetailsDTO {
 	
 	private List<UsuarioResponseDTO> participantes = new ArrayList<>();
 	
+	private List<MensagemDTO> mensagens = new ArrayList<MensagemDTO>();
+	
 	@JsonIgnore
 	private DateTimeFormatter dtf = DateTimeFormatter.ofPattern("dd/MM/yyyy HH:mm");
 	
@@ -42,5 +44,8 @@ public class ChatDetailsDTO {
 		this.administrador = ConversorDTO.usuario(chat.getAdministrador());
 		
 		this.participantes = ConversorDTO.usuarios(chat.getParticipantes());
+		
+		this.mensagens = ConversorDTO.mensagens(chat.getMensagens());
+
 	}
 }

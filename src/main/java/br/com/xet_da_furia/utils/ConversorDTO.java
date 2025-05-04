@@ -4,9 +4,11 @@ import java.util.List;
 import java.util.stream.Collectors;
 
 import br.com.xet_da_furia.model.Chat;
+import br.com.xet_da_furia.model.Mensagem;
 import br.com.xet_da_furia.model.Usuario;
 import br.com.xet_da_furia.model.dto.ChatDetailsDTO;
 import br.com.xet_da_furia.model.dto.ChatResponseDTO;
+import br.com.xet_da_furia.model.dto.MensagemDTO;
 import br.com.xet_da_furia.model.dto.UsuarioDetailsDTO;
 import br.com.xet_da_furia.model.dto.UsuarioResponseDTO;
 
@@ -37,6 +39,16 @@ public class ConversorDTO {
 		return usuarios.stream()
 				.map(u -> new UsuarioResponseDTO(u))
 				.collect(Collectors.toList());
+	}
+	
+	public static List<MensagemDTO> mensagens(List<Mensagem> mensagens) {
+		return mensagens.stream()
+				.map(m -> new MensagemDTO(m))
+				.collect(Collectors.toList());
+	}
+	
+	public static MensagemDTO mensagem(Mensagem mensagem) {
+		return new MensagemDTO(mensagem);
 	}
 
 }
